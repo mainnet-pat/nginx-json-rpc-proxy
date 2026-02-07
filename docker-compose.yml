@@ -1,0 +1,15 @@
+services:
+  jsonrpc-proxy:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      LISTEN_PORT: "8000"
+      BACKEND_HOST: "localhost"
+      BACKEND_PORT: "8545"
+      # Set to "*" to allow all, or comma-separated list: "getblock,getblockcount,getbestblockhash"
+      ALLOWED_METHODS: "*"
+      # Optional: comma-separated list of methods to block (applied after whitelist)
+      BLOCKED_METHODS: ""
+      # Optional: override the Authorization header sent to the backend
+      AUTHORIZATION_HEADER_OVERRIDE: ""
